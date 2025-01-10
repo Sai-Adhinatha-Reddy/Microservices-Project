@@ -5,8 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'dockerhub-cred') {
-                        sh 'docker build -t gsaiadhinathareddy/cartservice:v1 .'
+                    dir('src') {
+                        withDockerRegistry(credentialsId: 'dockerhub-cred') {
+                            sh 'docker build -t gsaiadhinathareddy/cartservice:v1 .'
+                        }
                     }
                 }
             }
