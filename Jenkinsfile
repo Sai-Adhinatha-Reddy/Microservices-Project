@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage('Push') {
-            step {
+            steps {
                 script {
                     withDockerRegistry(credentialsId: 'dockerhub-cred') {
                         sh 'docker push gsaiadhinathareddy/checkoutservice:v1'
